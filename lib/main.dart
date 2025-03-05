@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/pages/home_page.dart';
 import 'package:flutter_application_1/pages/login_page.dart';
 import 'package:flutter_application_1/utils/routes.dart';
+import 'package:flutter_application_1/widgets/themes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -20,25 +21,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.deepPurple),
-        fontFamily: GoogleFonts.lato().fontFamily,
-        // primaryTextTheme: GoogleFonts.latoTextTheme()
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        colorScheme: ColorScheme.dark(
-          primary: Colors.deepOrange,
-          secondary: Colors.orangeAccent,
-        ),
-        appBarTheme: const AppBarTheme(backgroundColor: Colors.deepOrange),
-      ),
+      theme: MyTheme.lightTheme, // ✅ Fixed getter access
+      darkTheme: MyTheme.darkTheme,
       initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context) =>  LoginPage(),
+        "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(name: name, days: days, weight: weight),
-        MyRoutes.loginRoute: (context) =>  LoginPage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
     );
   }

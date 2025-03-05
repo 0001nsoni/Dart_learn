@@ -13,8 +13,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shadowColor: Colors.black, 
-        elevation: 6, 
+       
         title: Text("Neeraj First App"),
       ),
       body: Center(
